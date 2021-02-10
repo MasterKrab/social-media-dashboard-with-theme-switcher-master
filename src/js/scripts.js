@@ -3,7 +3,7 @@ const checkbox = document.getElementById("checkbox")
 
 const darkTheme = {
    "--bg-main":  "hsl(230, 17%, 14%)",
-   "--bg-pattern": " hsl(232, 19%, 15%)",
+   "--bg-pattern": "hsl(232, 19%, 15%)",
    "--bg-card": "hsl(228, 28%, 20%)",
    "--bg-card-hover": "hsl(229, 20%, 31%)",
    "--text-1": "hsl(228, 34%, 66%)",
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () =>{
    if(theme == "darkTheme") {
       changeTheme(darkTheme)
       checkbox.checked = true
-   }else {
+   }else if(theme == "lightTheme") {
       changeTheme(lightTheme)
       checkbox.checked = false
    }

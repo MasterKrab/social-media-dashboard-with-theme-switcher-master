@@ -1,11 +1,11 @@
 :root{
    /* Theme colors */
-   --bg-main:  hsl(0, 0%, 100%);
-   --bg-pattern: hsl(225, 100%, 98%);
-   --bg-card: hsl(227, 47%, 96%);
-   --bg-card-hover: hsla(227, 22%, 87%, 0.917);
-   --text-1: hsl(228, 12%, 44%);
-   --text-2: hsl(230, 17%, 14%);
+   --bg-main:hsl(230, 17%, 14%);
+   --bg-pattern: hsl(232, 19%, 15%);
+   --bg-card:hsl(228, 28%, 20%);
+   --bg-card-hover: hsl(229, 20%, 31%);
+   --text-1: hsl(228, 34%, 66%);
+   --text-2: hsl(0, 0%, 100%);
 
    /* Followers */
    --new-followers: hsl(163, 72%, 41%);
@@ -42,7 +42,6 @@ html,
 body{
    display: flex;
    flex-direction: column;
-   justify-content: center;
    min-height: 100vh;
    max-width: 1440px;
    margin: 0 auto;
@@ -167,7 +166,7 @@ body{
 .followers__social{
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
    gap: 1rem;
 }
@@ -306,7 +305,7 @@ body{
 .overview__views{
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
    gap: 1rem;
 }
