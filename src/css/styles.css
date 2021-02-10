@@ -20,8 +20,8 @@
    
    /* Toggle */
    --toggle-light: hsl(230, 22%, 74%);
-   --toggle-1: hsl(210, 78%, 56%);
-   --toggle-2:  hsl(146, 68%, 55%);
+   --toggle-1:  hsl(146, 68%, 55%);
+   --toggle-2: hsl(210, 78%, 56%);
 }
 
 html{
@@ -33,12 +33,23 @@ html{
    box-sizing: inherit;
 }
 
+html,
+.social-card,
+.views-card{
+   transition: background-color 0.2s;
+}
+
 body{
-   margin: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   min-height: 100vh;
+   max-width: 1440px;
+   margin: 0 auto;
    font-family: Inter, sans-serif;
    font-size: 14px;
-   display: flex;
-   justify-content:center;
+   padding: 1rem;
+   transition: background-color 3s;
 }
 
 .main{
@@ -58,10 +69,12 @@ body{
 
 .followers__title{
    font-size: 1.5rem;
+   color: var(--text-2)
 }
 
 .followers__total,
-.switch{
+.switch,
+.overview{
    font-size: 1rem;
    color: var(--text-1);
 }
@@ -74,6 +87,14 @@ body{
 .followers__header{
    display: grid;
    grid-template-columns: 1fr;
+   margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+   .followers__header{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
 }
 
 .followers__total{
@@ -81,18 +102,76 @@ body{
    border-bottom: 1px solid var(--text-1);
 }
 
+@media screen and (min-width:1000px) {
+   .followers__total{
+      border: none;
+   }
+}
+
+
+/* DARK MODE TOGGLE */
 .switch{
    display: flex;
    justify-content: space-between;
    align-items: center;
-   height: 50px;
+   height: 20px;
+   padding-top: 1.5rem;
+   padding-bottom: 1rem;
 }
 
-.followers__social{
+.switch__checkbox{
+   appearance: none;
+   width: 70px;
+   height: 30px;
+   border-radius: 25px;
+   background-color: var(--toggle-light);
+   position: relative;
    display: grid;
-   grid-template-columns: 1fr;
+   align-items: center;
+   padding: 1rem;
+   transition: background-color 0.3s;
+   margin-left: 1rem;
+}
+
+.switch__checkbox::after{
+   content:"";
+   position: absolute;
+   right: 5px;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   background-color: var(--bg-card);
+   transition: transform 0.2s, background-color 0.3s;
+}
+
+.switch__checkbox:checked{
+   background-image: linear-gradient(to left, var(--toggle-1), var(--toggle-2));
+}
+
+.switch__checkbox:checked::after{
+   transform: translateX(-35px); 
+   background-color: hsl(230, 17%, 14%);
+}
+
+@media screen and (min-width: 1000px) {
+   .switch{
+      justify-content: flex-end;
+      grid-row: 1/2;
+      grid-column: 2 / 3;
+   }
+
+}
+
+/* Social */
+
+.followers__social{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
    gap: 1rem;
 }
+
 
 .social-card{
    background-color: var(--bg-card);
@@ -103,11 +182,22 @@ body{
    font-weight: 700;
    padding-top: 1rem;
    padding-bottom: 1rem;
-   border-radius: 1rem;
+   border-radius: 0.3rem;
+   width: 600px;
 }
 
-.social-card:hover{
-   background-color: var(--bg-card-hover);
+@media screen and (min-width: 700px){
+   .social-card{
+      width: 310px;
+   }
+}
+
+
+
+@media screen and (min-width: 900px) {
+   .social-card:hover{
+      background-color: var(--bg-card-hover);
+   }
 }
 
 .social-card__name{
@@ -117,7 +207,6 @@ body{
 }
 
 .social-card__icon{
-   background-image: url(../assets/img/icon-facebook.svg);
    background-repeat: no-repeat;
    background-size: contain;
    display: inline-block;
@@ -126,10 +215,27 @@ body{
    padding-left: 1.5rem;
 }
 
+.social-card__icon--facebook{
+   background-image: url(../assets/img/icon-facebook.svg);   
+}
+
+.social-card__icon--twitter{
+   background-image: url(../assets/img/icon-twitter.svg);   
+}
+
+.social-card__icon--instagram{
+   background-image: url(../assets/img/icon-instagram.svg);   
+}
+
+.social-card__icon--youtube{
+   background-image: url(../assets/img/icon-youtube.svg);   
+}
+
 .social-card__number{
    font-size: 3.5rem;
    margin-top: 0.8rem;
    margin-bottom: 0;
+   color: var(--text-2)
 }
 
 .social-card__text{
@@ -140,14 +246,118 @@ body{
    font-size: 1.2rem;
 }
 
-.social-card__new-followers{
+.social-card__new-followers,
+.views-card__new-views{
    color: var(--new-followers);
    position: relative;
+   font-weight: 700;
 }
 
-.social-card__new-followers:before{
+.social-card__new-followers::before,
+.social-card__new-followers--red::before,
+.views-card__new-views::before,
+.views-card__new-views--red::before{
    content: url('../assets/img/icon-up.svg');
    position: absolute;
-   left: -11px;
+   left: -12px;
    top: -2px;
+}
+
+.social-card__new-followers--red,
+.views-card__new-views--red{
+   color: var(--lost-followers)
+}
+
+.social-card__new-followers--red::before,
+.views-card__new-views--red::before{
+   content: url('../assets/img/icon-down.svg');
+}
+
+.social-card--facebook{
+   border-top: 5px solid var(--facebook)
+}
+
+.social-card--twitter{
+   border-top: 5px solid var(--twitter)
+}
+
+.social-card--instagram{
+   margin-top: 5px;
+   position: relative;
+}
+.social-card--instagram::after{
+   content:"";
+   position: absolute;
+   top: -5px;
+   width: 100%;
+   height: 5px;
+   background-image: linear-gradient(to left, var(--instagram-1), var(--instagram-2));
+   border-top-left-radius: 0.3rem;
+   border-top-right-radius: 0.3rem;
+}
+
+
+.social-card--youtube{
+   border-top: 5px solid var(--youtube)
+}
+
+/* Overview */
+
+.overview__views{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+}
+
+.views-card{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   align-items: center;
+   padding: 1rem 1.5rem;
+   background-color: var(--bg-card);
+   width: 600px;
+}
+
+@media screen and (min-width: 900px) {
+
+   .views-card{
+      width: 310px;
+   }
+
+   .views-card:hover{
+      background-color: var(--bg-card-hover);
+   }
+
+}
+
+.views-card__icon,
+.views-card__new-views{
+   justify-self: flex-end;
+}
+
+.views-card__views{
+   font-size: 2rem;
+   color: var(--text-2);
+   font-weight: 700;
+   line-height: 0;
+}
+
+.views-card__icon{
+   width: 25px;
+}
+
+.footer{
+   font-size: 0.8rem;
+   text-align: center;
+   color: var(--text-1);
+   padding: 2rem;
+   margin-top: auto;
+   font-weight: 700;
+ }
+ 
+.footer__link{
+   color: var(--text-2);
+   text-decoration: none;
 }
