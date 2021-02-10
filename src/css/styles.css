@@ -1,0 +1,153 @@
+:root{
+   /* Theme colors */
+   --bg-main:  hsl(0, 0%, 100%);
+   --bg-pattern: hsl(225, 100%, 98%);
+   --bg-card: hsl(227, 47%, 96%);
+   --bg-card-hover: hsla(227, 22%, 87%, 0.917);
+   --text-1: hsl(228, 12%, 44%);
+   --text-2: hsl(230, 17%, 14%);
+
+   /* Followers */
+   --new-followers: hsl(163, 72%, 41%);
+   --lost-followers: hsl(356, 69%, 56%);
+
+   /* Social */
+   --facebook: hsl(208, 92%, 53%);
+   --twitter:  hsl(203, 89%, 53%);
+   --instagram-1: hsl(37, 97%, 70%);
+   --instagram-2:  hsl(329, 70%, 58%);
+   --youtube: hsl(348, 97%, 39%);
+   
+   /* Toggle */
+   --toggle-light: hsl(230, 22%, 74%);
+   --toggle-1: hsl(210, 78%, 56%);
+   --toggle-2:  hsl(146, 68%, 55%);
+}
+
+html{
+   background-color: var(--bg-main);
+   box-sizing: border-box;
+}
+
+*{
+   box-sizing: inherit;
+}
+
+body{
+   margin: 0;
+   font-family: Inter, sans-serif;
+   font-size: 14px;
+   display: flex;
+   justify-content:center;
+}
+
+.main{
+   min-width: 90%;
+}
+
+.followers{
+   margin-top: 1rem;
+}
+
+.followers__title,
+.followers__total,
+.switch{
+   margin: 0;
+   font-weight: 700;
+}
+
+.followers__title{
+   font-size: 1.5rem;
+}
+
+.followers__total,
+.switch{
+   font-size: 1rem;
+   color: var(--text-1);
+}
+
+.followers__total{
+   padding-bottom: 1rem;
+   padding-top: 0.2rem;
+}
+
+.followers__header{
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+.followers__total{
+   grid-column: 1/2;
+   border-bottom: 1px solid var(--text-1);
+}
+
+.switch{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 50px;
+}
+
+.followers__social{
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 1rem;
+}
+
+.social-card{
+   background-color: var(--bg-card);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   font-weight: 700;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   border-radius: 1rem;
+}
+
+.social-card:hover{
+   background-color: var(--bg-card-hover);
+}
+
+.social-card__name{
+   color: var(--text-1);
+   display: flex;
+   align-items: center
+}
+
+.social-card__icon{
+   background-image: url(../assets/img/icon-facebook.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   padding-left: 1.5rem;
+}
+
+.social-card__number{
+   font-size: 3.5rem;
+   margin-top: 0.8rem;
+   margin-bottom: 0;
+}
+
+.social-card__text{
+   color: var(--text-1);
+   margin-top: 0;
+   letter-spacing: 5px;
+   font-weight: 500;
+   font-size: 1.2rem;
+}
+
+.social-card__new-followers{
+   color: var(--new-followers);
+   position: relative;
+}
+
+.social-card__new-followers:before{
+   content: url('../assets/img/icon-up.svg');
+   position: absolute;
+   left: -11px;
+   top: -2px;
+}
