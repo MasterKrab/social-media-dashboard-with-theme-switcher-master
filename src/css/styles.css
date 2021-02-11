@@ -310,6 +310,10 @@ body{
 
 /* Overview */
 
+.overview__title{
+   color: var(--text-2)
+}
+
 .overview__views{
    display: flex;
    flex-wrap: wrap;
