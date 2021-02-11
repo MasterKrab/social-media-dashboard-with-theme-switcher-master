@@ -42,9 +42,8 @@ html,
 body{
    display: flex;
    flex-direction: column;
+   align-items: center;
    min-height: 100vh;
-   max-width: 1440px;
-   margin: 0 auto;
    font-family: Inter, sans-serif;
    font-size: 14px;
    padding: 1rem;
@@ -52,7 +51,8 @@ body{
 }
 
 .main{
-   min-width: 90%;
+   width: 90%;
+   max-width: 1300px;
 }
 
 .followers{
@@ -166,9 +166,15 @@ body{
 .followers__social{
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
    gap: 1rem;
+}
+
+@media screen and (min-width:1000px) {
+   .followers__social{
+      align-items: space-evenly;
+   }
 }
 
 
@@ -305,9 +311,17 @@ body{
 .overview__views{
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
    gap: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+   
+.overview__views{
+   align-items: space-evenly;
+}
+
 }
 
 .views-card{
