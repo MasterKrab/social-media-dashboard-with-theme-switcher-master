@@ -208,7 +208,8 @@ body{
 .social-card__name{
    color: var(--text-1);
    display: flex;
-   align-items: center
+   align-items: center;
+   text-transform: uppercase;
 }
 
 .social-card__icon{
