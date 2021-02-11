@@ -193,7 +193,7 @@ body{
 
 @media screen and (min-width: 700px){
    .social-card{
-      width: 310px;
+      width: 300px;
    }
 }
 
@@ -338,7 +338,7 @@ body{
 @media screen and (min-width: 900px) {
 
    .views-card{
-      width: 310px;
+      width: 300px;
    }
 
    .views-card:hover{
