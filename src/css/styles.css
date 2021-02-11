@@ -209,7 +209,6 @@ body{
    color: var(--text-1);
    display: flex;
    align-items: center;
-   text-transform: uppercase;
 }
 
 .social-card__icon{
@@ -220,6 +219,7 @@ body{
    height: 20px;
    padding-left: 1.5rem;
 }
+
 
 .social-card__icon--facebook{
    background-image: url(../assets/img/icon-facebook.svg);   
@@ -250,6 +250,7 @@ body{
    letter-spacing: 5px;
    font-weight: 500;
    font-size: 1.2rem;
+   text-transform: uppercase;
 }
 
 .social-card__new-followers,
